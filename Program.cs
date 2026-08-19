@@ -3,3 +3,5 @@
 
 
 Console.WriteLine(solution.GetRow(3));
+
+
