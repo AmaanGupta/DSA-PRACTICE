@@ -12,3 +12,4 @@ C:\Unity\MyApp\obj\Debug\net9.0\refint\MyApp.dll
 C:\Unity\MyApp\obj\Debug\net9.0\MyApp.pdb
 C:\Unity\MyApp\obj\Debug\net9.0\MyApp.genruntimeconfig.cache
 C:\Unity\MyApp\obj\Debug\net9.0\ref\MyApp.dll
+C:\Unity\MyApp\obj\Debug\net9.0\MyApp.sourcelink.json
