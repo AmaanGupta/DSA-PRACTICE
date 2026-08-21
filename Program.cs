@@ -2,6 +2,6 @@
 
 
 
-Console.WriteLine(solution.StrStr("adbutsad","sad"));
+Console.WriteLine(solution.LengthOfLastWord("my   n a me   i s    sitanshu   "));
 
 

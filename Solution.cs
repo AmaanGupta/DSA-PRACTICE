@@ -340,16 +340,23 @@ public class Solution {
         return answer;
     }
 
-    public int StrStr(string haystack, string needle) {
-        string ansString="";
-        int ansIndex=0;
-        int j=0;
-        for(int i=0; i < haystack.Length; i++)
+    public int LengthOfLastWord(string s) {
+        int ans=0;
+        bool isCounting=false;
+        for(int i=s.Length-1; i >= 0; i--)
         {
-            if(haystack[i]==)
-        }
-        return ansIndex;
+            if(s[i]!=' ')
+            {
+                isCounting=true;
+                ans++;
+            }
+            if(s[i]==' ' && isCounting)
+            {
+                break;
+            }
 
+        }
+        return ans;
     }
 
 
