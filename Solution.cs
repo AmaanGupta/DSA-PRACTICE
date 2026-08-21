@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices.Marshalling;
+using System.Runtime.CompilerServices;
 
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
@@ -257,6 +258,7 @@ public class Solution {
                 answer+=1000;
                 continue;
             }
+
             if (s[i] == 'D')
             {
                 answer+=500;
@@ -336,6 +338,18 @@ public class Solution {
             
         }
         return answer;
+    }
+
+    public int StrStr(string haystack, string needle) {
+        string ansString="";
+        int ansIndex=0;
+        int j=0;
+        for(int i=0; i < haystack.Length; i++)
+        {
+            if(haystack[i]==)
+        }
+        return ansIndex;
+
     }
 
 

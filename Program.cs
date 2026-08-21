@@ -2,6 +2,6 @@
 
 
 
-Console.WriteLine(solution.RomanToInt("LIV"));
+Console.WriteLine(solution.StrStr("adbutsad","sad"));
 
 
