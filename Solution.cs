@@ -361,11 +361,11 @@ public class Solution {
 
     
     public string AddBinary(string a, string b) {
-        return Convert.ToString(BinaryToInt(a)+BinaryToInt(b),2);
+        return IntToBinary(BinaryToInt(a)+BinaryToInt(b));
     }
-    public int BinaryToInt(string x)
+    public BigInteger BinaryToInt(string x)
     {
-        int output=0;
+        BigInteger output=0;
         int var=0;
         int posValue=0;
         for(int i=0; i < x.Length; i++)
@@ -377,6 +377,31 @@ public class Solution {
         return output;
         
     }
+
+    public string IntToBinary(BigInteger x)
+    {
+        if(x==0) return "0";
+        List<BigInteger> remainderList=[];
+        BigInteger currentQuotient=x;
+        while (true)
+        {
+            if (currentQuotient != 0)
+            {
+                remainderList.Add(currentQuotient%2);
+            } 
+            else
+            {
+                break;
+            }
+            currentQuotient=currentQuotient/2;
+            
+        }
+        
+        remainderList.Reverse();
+        return string.Join("", remainderList);
+    }
+
+
     
 
 

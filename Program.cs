@@ -2,6 +2,6 @@
 
 
 
-Console.WriteLine(solution.AddBinary("11","1"));
+Console.WriteLine(solution);
 
 
