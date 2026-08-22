@@ -2,6 +2,6 @@
 
 
 
-Console.WriteLine(solution.LengthOfLastWord("my   n a me   i s    sitanshu   "));
+Console.WriteLine(solution.AddBinary("11","1"));
 
 

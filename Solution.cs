@@ -359,6 +359,26 @@ public class Solution {
         return ans;
     }
 
+    
+    public string AddBinary(string a, string b) {
+        return Convert.ToString(BinaryToInt(a)+BinaryToInt(b),2);
+    }
+    public int BinaryToInt(string x)
+    {
+        int output=0;
+        int var=0;
+        int posValue=0;
+        for(int i=0; i < x.Length; i++)
+        {
+            var=(int) Math.Pow(2,i);
+            posValue=x[x.Length-1-i]-'0';
+            output+=posValue*var;
+        }
+        return output;
+        
+    }
+    
+
 
 
     
