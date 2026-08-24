@@ -360,7 +360,7 @@ public class Solution {
     }
 
     
-    public string AddBinary(string a, string b) {
+    public string AddBinaryAttempt(string a, string b) {
         return IntToBinary(BinaryToInt(a)+BinaryToInt(b));
     }
     public BigInteger BinaryToInt(string x)
