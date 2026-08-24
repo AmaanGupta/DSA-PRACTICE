@@ -2,6 +2,6 @@
 
 
 
-Console.WriteLine(solution);
+Console.WriteLine(solution.IsPalindrome("k"));
 
 

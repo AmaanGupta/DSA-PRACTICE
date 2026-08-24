@@ -8,6 +8,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices.Marshalling;
 using System.Runtime.CompilerServices;
 
+
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         int[] ans= new int[2]{0,0};
@@ -399,6 +400,48 @@ public class Solution {
         
         remainderList.Reverse();
         return string.Join("", remainderList);
+    }
+    
+    public bool IsPalindrome(string s) {
+        List<char> chars = new List<char>();
+        bool ans=false;
+        foreach(char c in s)
+        {
+            if((c >= 'a' && c <= 'z')||(c>='0' && c<= '9') )
+            {
+              chars.Add(c);  
+            }
+            if (c >= 'A' && c <= 'Z')
+            {
+                chars.Add( (char)(c + ('a' - 'A')));
+            }
+    
+        }
+        
+        
+        List<char> originalList=new List<char>(chars);
+        chars.Reverse();
+        for(int i=0; i<originalList.Count;i++)
+        {
+            if (originalList[i] != chars[i])
+            {
+                ans = false;
+                break;
+            }
+            else
+            {
+                ans=true;
+            }
+        }
+        if (chars.Count == 0 || chars.Count == 1)
+        {
+            ans=true;
+        }
+        return ans;
+        
+        
+        
+        
     }
 
 
