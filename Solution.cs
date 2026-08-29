@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System;
+using System.Text;
 using System.Linq;
 using System.Reflection;
 using System.Globalization;
@@ -443,6 +444,70 @@ public class Solution {
         
         
     }
+
+    public string ConvertToTitle(int columnNumber) {
+        StringBuilder sb = new StringBuilder("");
+        if (columnNumber <= 26)
+        {
+            sb.Append((char)('A'+ columnNumber-1));
+            return sb.ToString();
+        }
+
+        while (true)
+        {
+            int i=0;
+            if(columnNumber  %  (int)Math.Pow(26,i) <= 26)
+            {
+                
+            }
+            i++;
+            
+
+        }
+        
+    }
+
+    public int TitleToNumber(string columnTitle) {
+        int n=0;
+        foreach(char c in columnTitle)
+        {
+            n*=26;
+            n+=c-'A'+1;
+            
+        }
+        return n;
+        
+    }
+
+    public bool IsIsomorphic(string s, string t) {
+        Dictionary<char,char> dict= new Dictionary<char, char>();
+        
+        if (s.Length != t.Length)
+        {
+            return false;
+        }
+        for(int i=0; i < s.Length; i++)
+        {
+            if (dict.ContainsKey(s[i]) || dict.ContainsValue(t[i]))
+            {
+                if(!dict.ContainsKey(s[i]) || !dict.ContainsValue(t[i]))
+                {
+                    return false;
+                }
+                if (dict[s[i]] != t[i])
+                {
+                    return false;
+                }
+            }
+            dict[s[i]]=t[i];
+            
+        }
+        return true;
+
+
+
+    }
+
 
 
     

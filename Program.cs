@@ -2,6 +2,6 @@
 
 
 
-Console.WriteLine(solution.IsPalindrome("k"));
+Console.WriteLine(solution.IsIsomorphic("badc","baba"));
 
 
