@@ -532,6 +532,107 @@ public class Solution {
 
         return true;
     }
+    public bool IsIsomorphicSolution(string s, string t)
+        {
+            if (s.Length != t.Length) return false;
+
+            var map = new Dictionary<char, char>(26);
+            var visited = new HashSet<char>(26);
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (map.ContainsKey(s[i]))
+                {
+                    if (map[s[i]] != t[i]) return false;
+                }
+                else
+                {
+                    if (visited.Contains(t[i])) return false;
+                    map.Add(s[i], t[i]);
+                    visited.Add(t[i]);
+                }
+            }
+            return true;
+        }
+
+    public int SingleNumberTry1(int[] nums) {
+        int ans=0;
+        Dictionary<int,int> dict = new Dictionary<int, int>();
+        for(int i = 0; i <= nums.Length-1; i++)
+        {
+            if (!dict.ContainsKey(nums[i]))
+            {
+                dict[nums[i]]=1;
+            }
+            else
+            {
+                dict[nums[i]]++;
+            }
+        }
+        
+        foreach(KeyValuePair<int,int> i in dict)
+        {
+            if (i.Value == 1)
+            {
+                ans=i.Key;
+            }
+            
+        }
+        return ans;
+    }
+    public int SingleNumberTry2(int[] nums) {
+        
+        List<int> list=new List<int>();
+        Dictionary<int,int> dict = new Dictionary<int, int>();
+        for(int i = 0; i <= nums.Length-1; i++)
+        {
+            if (!list.Contains(nums[i]))
+            {
+                list.Add(nums[i]);
+            }
+            else
+            {
+                list.Remove(nums[i]);
+            }
+        }
+        
+        
+        return list[0];
+    }
+    public int SingleNumberTry3(int[] nums) {
+        int ans=0;
+        
+        Array.Sort(nums);
+        for(int i = 0; i < nums.Length; i=i+2)
+        {
+            if (i == nums.Length - 1)
+            {
+                ans=nums[i];
+                break;
+            }
+            if (nums[i] != nums[i+1])
+            {
+                ans=nums[i];
+                break;
+                
+            }
+            
+        }
+        return ans;
+    }
+    public int SingleNumberSolution(int[] nums) {
+        var ans=0;
+        foreach(int i in nums)
+        {
+            ans^=i;
+        }
+        return ans;
+        
+    }
+
+
+
+
+    
 
 
 
