@@ -629,6 +629,69 @@ public class Solution {
         
     }
 
+    public int MajorityElementTry1(int[] nums) {
+        int ans=0;
+        Dictionary<int,int> dict = new Dictionary<int, int>();
+        foreach(int i in nums)
+        {
+            if (dict.ContainsKey(i))
+            {
+                dict[i]++;
+            }
+            else
+            {
+                dict[i]=1;
+            }
+        }
+        foreach(KeyValuePair<int,int> j in dict)
+        {
+            if (j.Value > nums.Length / 2)
+            {
+                ans=j.Key;
+            }
+        }
+        return ans;
+
+        
+    }
+
+    public int MajorityElementTry2(int[] nums)
+    {
+        
+        Array.Sort(nums);
+        if (nums.Length % 2 == 0)
+        {
+            return nums[nums.Length/2+1];
+        }
+        else
+        {
+            return nums[nums.Length/2];
+        }
+    }
+    public int MajorityElement(int[] nums) {
+        int candidate=0;
+        int count=0;
+        foreach(int num in nums)
+        {
+            if (count == 0)
+            {
+                candidate=num;
+            }
+            if (num == candidate)
+            {
+                count++;
+            }
+            else
+            {
+                count--;
+            }
+        }
+        return candidate;
+        
+
+        
+    }
+
 
 
 

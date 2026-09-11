@@ -2,6 +2,6 @@
 
 
 
-Console.WriteLine(solution.SingleNumberSolution([2,1,3,2,3]));
+Console.WriteLine(solution.MajorityElement([3,2,3]));
 
 
