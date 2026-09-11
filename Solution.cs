@@ -691,6 +691,42 @@ public class Solution {
 
         
     }
+    public bool ContainsDuplicateTry(int[] nums) {
+        Dictionary<int,int> dict = new Dictionary<int, int>();
+        foreach(int num in nums)
+        {
+            if (dict.ContainsKey(num))
+            {
+                dict[num]++;
+            }
+            else
+            {
+                dict[num]=1;
+            }
+        }
+        foreach(KeyValuePair<int,int> i in dict)
+        {
+            if (i.Value>=2) return true;
+        }
+        return false;
+    }
+    public bool ContainsDuplicate(int[] nums)
+    {
+        
+        HashSet<int> set = new HashSet<int>();
+        foreach(int num in nums)
+        {
+            if (!set.Add(num))
+            {
+                return true;
+            }
+            
+        }
+        return false;
+        
+
+    }
+
 
 
 
