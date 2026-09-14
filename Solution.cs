@@ -727,6 +727,265 @@ public class Solution {
 
     }
 
+    public bool IsRectangleOverlap(int[] rec1, int[] rec2) {
+
+        if(rec1[0]<=rec2[0] && rec2[0]<rec1[2] && rec1[2]<=rec2[2])
+        {
+
+            if(rec1[1]<=rec2[1] && rec2[1]<rec1[3]&& rec1[3] <= rec2[3])
+            {
+                return true;
+            }
+            if(rec2[1]<=rec1[1] && rec1[3] <= rec2[3])
+            {
+                return true;
+            }
+            if(rec1[1]<=rec2[1] && rec2[3] <= rec1[3])
+            {
+                return true;
+            }
+            if(rec2[1]<=rec1[1] && rec1[1]<rec2[3]&& rec2[3] <= rec1[3])
+            {
+                return true;
+            }
+
+        }
+        if(rec1[0]<=rec2[0]  && rec2[2]<=rec1[2])
+        {
+
+            if(rec1[1]<=rec2[1] && rec2[1]<rec1[3]&& rec1[3] <= rec2[3])
+            {
+                return true;
+            }
+            if(rec2[1]<=rec1[1] && rec1[3] <= rec2[3])
+            {
+                return true;
+            }
+            if(rec1[1]<=rec2[1] && rec2[3] <= rec1[3])
+            {
+                return true;
+            }
+            if(rec2[1]<=rec1[1] && rec1[1]<rec2[3]&& rec2[3] <= rec1[3])
+            {
+                return true;
+            }
+
+        }
+        if(rec2[0]<=rec1[0] && rec1[0]<rec2[2] && rec2[2]<=rec1[2])
+        {
+
+            if(rec1[1]<=rec2[1] && rec2[1]<rec1[3]&& rec1[3] <= rec2[3])
+            {
+                return true;
+            }
+            if(rec2[1]<=rec1[1] && rec1[3] <= rec2[3])
+            {
+                return true;
+            }
+            if(rec1[1]<=rec2[1] && rec2[3] <= rec1[3])
+            {
+                return true;
+            }
+            if(rec2[1]<=rec1[1] && rec1[1]<rec2[3]&& rec2[3] <= rec1[3])
+            {
+                return true;
+            }
+
+        }
+        if(rec2[0]<=rec1[0]  && rec1[2]<=rec2[2])
+        {
+
+            if(rec1[1]<=rec2[1] && rec2[1]<rec1[3]&& rec1[3] <= rec2[3])
+            {
+                return true;
+            }
+            if(rec2[1]<=rec1[1] && rec1[3] <= rec2[3])
+            {
+                return true;
+            }
+            if(rec1[1]<=rec2[1] && rec2[3] <= rec1[3])
+            {
+                return true;
+            }
+            if(rec2[1]<=rec1[1] && rec1[1]<rec2[3]&& rec2[3] <= rec1[3])
+            {
+                return true;
+            }
+
+        }
+        return false;
+
+        
+        
+    }
+
+
+
+
+
+
+    public int countDigit(int n) {
+        int counter=0;
+        while(true){
+            if(n/10==0){
+                counter++;
+                break;
+            }
+            else{
+                counter++;
+                n/=10;
+            }
+
+        }
+        return counter;
+    }
+    public int countDigitOptimal(int n) {
+        
+        return (int)Math.Log10(n)+1;
+    }
+    public int Reverse(int n) {
+        
+        int negativeFactor=1;
+        
+        if(n<0) negativeFactor=-1;
+        int n1=Math.Abs(n);
+        var lenght=(int)Math.Log10(n1)+1;
+        
+        var ans=(long)0;
+        for(int i = 0; i < lenght; i++)
+        {
+            ans+=(long)Math.Pow(10,lenght-i-1)*(n1%10);
+            n1/=10;
+            
+        }
+        
+        
+        
+        return (int) ans*negativeFactor;
+
+    }
+    public int ReverseOptimal(int x) {
+        int reverse = 0;
+        
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            
+            if (reverse > int.MaxValue / 10 || (reverse == int.MaxValue / 10 && pop > 7)) 
+                return 0;
+            if (reverse < int.MinValue / 10 || (reverse == int.MinValue / 10 && pop < -8)) 
+                return 0;
+                
+            reverse = reverse * 10 + pop;
+        }
+        
+        return reverse;
+    }
+
+    public int Fib(int n) {
+        if(n==0)return 0;
+        if(n==1)return 1;
+        return Fib(n-1) + Fib(n-2);
+        
+        
+    }
+
+
+    public bool Check(int[] nums) {
+        bool ans=false;
+        bool switched=false;
+
+        for (int i=0 ; i < nums.Length; i++)
+        {
+            
+            if(nums.Length==1) 
+            {
+                ans=true;
+                break;
+            }
+            if(nums.Length==2) 
+            {
+                ans=true;
+                break;
+            }
+            if(i==nums.Length - 1) break;
+            if (i == nums.Length - 2)
+                {
+                    ans=true;
+                    break;
+                }
+
+            if (i == 0)
+            {
+                if (nums[i] <= nums[i + 1])
+                {
+                    ans=true;
+                }
+                else
+                {
+                    ans=false;
+                    break;
+                }
+            }
+            else
+            {
+                if (!switched)
+                {
+                    if(nums[i]<=nums[i+1])
+                    {
+                        if(nums[i + 1] <= nums[i + 2])
+                        {
+                            ans=true;
+                        }
+                        else
+                        {
+                            switched=true;
+                            continue;
+                        }
+                        
+                    }
+                    else
+                    {
+                        ans=false;
+                        break;
+                    }
+                }
+                else
+                {
+                    if(nums[i + 1] <= nums[i + 2])
+                    {
+                        ans=true;
+                    }
+                    else
+                    {
+                        ans=false;
+                        break;
+                    }
+                }
+            
+            }
+            
+            
+        }
+        return ans;
+    }
+
+    public bool Check1(int[] nums)
+    {
+        bool ans=true;
+        for(int i=0; i < nums.Length; i++)
+        {
+            if (nums[(i + 1)%nums.Length] < nums[i])
+            {
+                ans=false;
+            }
+            ans=true;
+        }
+        return ans;
+    }
+
+
+
 
 
 
