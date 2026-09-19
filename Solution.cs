@@ -970,19 +970,190 @@ public class Solution {
         return ans;
     }
 
-    public bool Check1(int[] nums)
+    public bool CheckOpt(int[] nums)
     {
-        bool ans=true;
+        int count = 0;
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (nums[(i + 1) % nums.Length] < nums[i])
+            {
+                count++;
+            }
+        }
+
+        return count <= 1;
+    }
+
+    public void RotateTry(int[] nums, int k) {
+        int[] nums1 = new int[nums.Length];
         for(int i=0; i < nums.Length; i++)
         {
-            if (nums[(i + 1)%nums.Length] < nums[i])
+            nums1[(i+k)%nums.Length]=nums[i];
+        }
+        for(int j=0; j<nums1.Length;j++)
+        {
+            nums[j]=nums1[j];
+        }
+        
+    }
+    
+    public void Rotate(int[] nums, int k)
+    {
+        if (nums.Length == 0) return;
+
+        k %= nums.Length;
+
+        Array.Reverse(nums, 0, nums.Length - k);
+        Array.Reverse(nums, nums.Length - k, k);
+        Array.Reverse(nums, 0, nums.Length);
+    }
+
+    public void MoveZeroesTry(int[] nums) {
+        int count=0;
+        int temp=0;
+        for(int i=0; i < nums.Length; i++)
+        {
+            if (i == nums.Length - 1)
             {
-                ans=false;
+                break;
             }
-            ans=true;
+            if (nums[i] == 0)
+            {
+                if (nums[i + 1] != 0)
+                {
+                    temp = nums[i+1];
+                    nums[i+1] = nums[i];
+                    nums[count]=temp;
+                    count++;
+                    continue;
+                }
+                else
+                {
+                    
+                    continue;
+                }
+            }
+            else
+            {
+                if (count != i)
+                {
+                    temp=nums[count];
+                
+                    nums[count]=nums[i];
+                    nums[i]=temp;
+                    count++;
+                    continue;
+                }
+                else
+                {
+                    count++;
+                }
+                
+            }
+
+        }
+        
+
+        
+    }
+    public int[] MoveZeroesBetter(int[] nums) {
+        int count=0;
+        int temp=0;
+        for(int i=0; i < nums.Length; i++)
+        {
+            if (nums[i] != 0)
+            {
+                temp=nums[i];
+                nums[count]=nums[i];
+                nums[i]=0;
+                count++;
+            }
+            
+        }
+        return nums;
+
+        
+
+        
+    }
+
+    public int LinearSearch(int[] nums, int num)
+    {
+        
+        for(int i=0; i<nums.Length ; i++)
+        {
+            if (nums[i] == num)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int MissingNumber(int[] nums)
+    {
+        float lastNum = nums.Length+1;
+        float actualSum = 0;
+        float expectedSum = (lastNum/2)*(lastNum+1);
+        for(int i=0; i < nums.Length; i++)
+        {
+            actualSum+=nums[i];
+        }
+        return (int)(expectedSum-actualSum);
+    }
+
+    public int FindMaxConsecutiveOnes(int[] nums) {
+        
+        int count=0;
+        int ans=0;
+        for(int i=0; i < nums.Length; i++)
+        {
+            if (nums[i] == 1)
+            {
+                count++;
+                
+            }
+            else
+            {
+                if (ans < count)
+                {
+                    ans=count;
+                }
+                count=0;
+            }
+        }
+        return Math.Max(count,ans);
+    }
+    public int LongestSubArray(int[] nums,int target)
+    {
+        int count=0;
+        int ans=0;
+        int sum=0;
+        for(int i = 0; i < nums.Length; i++)
+        {
+            sum+=nums[i];
+            count++;
+            if (sum > target)
+            {
+                i=i-count+1;
+                count=0;
+                sum=0;
+            }
+            if (sum == target)
+            {
+                ans=Math.Max(ans,count);
+                i=i-count+1;
+                count=0;
+                sum=0;
+            }
+
+
         }
         return ans;
     }
+
+
 
 
 
