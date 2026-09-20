@@ -8,6 +8,7 @@ using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices.Marshalling;
 using System.Runtime.CompilerServices;
+using System.Drawing;
 
 
 public class Solution {
@@ -1151,6 +1152,41 @@ public class Solution {
 
         }
         return ans;
+    }
+
+    public int[] IntersectionArray(int[] nums1, int[] nums2) {
+        List<int> ans=new List<int>();
+        int length_1=nums1.Length;
+        int length_2=nums2.Length;
+        
+        int i=0;
+        int j=0;
+        while(i<length_1 && j<length_2)
+        {
+            if (nums1[i]==nums2[j])
+            {
+                ans.Add(nums1[i]);
+                i++;
+                j++;
+                continue;
+            }
+
+
+            if(nums1[i]<nums2[j] )
+            {
+                i++;
+                continue;
+            }
+
+            if(nums2[j] < nums1[i])
+            {
+                j++;
+                continue;
+            }
+
+        
+        }
+        return ans.ToArray();
     }
 
 
