@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Unity\\MyApp\\MyApp.csproj": {}
+    "C:\\Unity\\MyApp\\MyApp.csproj": {}
   },
   "projects": {
-    "c:\\Unity\\MyApp\\MyApp.csproj": {
+    "C:\\Unity\\MyApp\\MyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Unity\\MyApp\\MyApp.csproj",
+        "projectUniqueName": "C:\\Unity\\MyApp\\MyApp.csproj",
         "projectName": "MyApp",
-        "projectPath": "c:\\Unity\\MyApp\\MyApp.csproj",
+        "projectPath": "C:\\Unity\\MyApp\\MyApp.csproj",
         "packagesPath": "C:\\Users\\amang\\.nuget\\packages\\",
-        "outputPath": "c:\\Unity\\MyApp\\obj\\",
+        "outputPath": "C:\\Unity\\MyApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amang\\AppData\\Roaming\\NuGet\\NuGet.Config"
