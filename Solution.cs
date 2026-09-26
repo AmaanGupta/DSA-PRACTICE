@@ -1189,6 +1189,137 @@ public class Solution {
         return ans.ToArray();
     }
 
+    public List<int> Leaders(List<int> nums) {
+        List<int> ans = new List<int>();
+        int maxSoFar=int.MinValue;
+
+        for(int i=0; i < nums.Count; i++)
+        {
+           if( nums[nums.Count-i-1] > maxSoFar)
+            {
+                ans.Insert(0,nums[nums.Count-i-1]);
+                maxSoFar=nums[nums.Count-i-1];
+            }
+        }
+        return ans;
+    }
+
+    public int[] RearrangeArrayTry(int[] nums)
+    {
+
+
+        int i=0;
+        int j=0;
+        int[] ans = new int[nums.Length];
+        int index=0;
+        while ( index < nums.Length)
+        {
+            
+
+            if (index % 2 == 0)
+            {
+                
+                if(nums[i] > 0)
+                {
+                    ans[index]=nums[i];
+                    i++;
+                    index++;
+                    continue;
+                }
+                else
+                {
+                    i++;
+                    continue;
+                }
+            }
+            else
+            {
+                if (nums[j] < 0)
+                {
+                    ans[index]=nums[j];
+                    j++;
+                    index++;
+                    continue;
+                }
+                else
+                {
+                    j++;
+                    continue;
+                }
+            }
+
+
+            
+            
+        }
+        return ans;
+
+    }
+    public int[] RearrangeArray(int[] nums)
+    {
+
+
+        int i=0;
+        int j=1;
+        int[] ans = new int[nums.Length];
+        
+        for(int m=0; m < nums.Length; m++)
+        {
+            if (nums[m] > 0)
+            {
+                ans[i]=nums[m];
+                i=i+2;
+            }
+            if (nums[m] < 0)
+            {
+                ans[j]=nums[m];
+                j=j+2;
+            }
+        }
+        return ans;
+
+    }
+    public IList<int> SpiralOrder(int[][] matrix) {
+        
+        IList<int> list= new List<int>();
+        
+        int i=0;
+
+        int j=-1;
+
+        int i_max=matrix.Length;
+
+        int j_max=matrix[0].Length;
+        int negativeFactor=1;
+
+
+        while (i_max>0 &&  j_max>0)
+        {
+            
+            for(int var1=0; var1 < j_max; var1++)
+            {
+                j=j+negativeFactor;
+                list.Add(matrix[i][j]);
+                
+                
+            }
+            
+            i_max--;
+            
+            for(int var2=0 ; var2<i_max; var2++)
+            {
+                i=i+negativeFactor;
+                list.Add(matrix[i][j]);
+                
+            }
+            j_max--;
+            
+            negativeFactor=negativeFactor*(-1);
+        }
+        return list;
+
+    }
+
 
 
 

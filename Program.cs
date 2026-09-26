@@ -1,6 +1,12 @@
 ﻿Solution solution= new Solution();
 
 
-Console.WriteLine(solution.IntersectionArray( [1, 2, 2, 3, 5],[1, 2, 7]));
+Console.WriteLine(solution.SpiralOrder(new int[][]
+    {
+        new int[] { 1, 2, 3,4},
+        new int[] { 5,6,7,8},
+        new int[] { 9,10,11,12 }
+
+    }));
 
 
