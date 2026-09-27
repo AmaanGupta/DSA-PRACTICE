@@ -1321,6 +1321,17 @@ public class Solution {
     }
 
 
+    public void Rotate(int[][] matrix) {
+        int length = matrix.Length;
+        int i=0;
+        int j=0;
+        int temp=0;
+
+        
+        
+    }
+
+
 
 
 
